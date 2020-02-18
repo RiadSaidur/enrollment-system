@@ -13,11 +13,14 @@
 * Admin can view **any specified students** information **on demand**.
 * Admin can view the **number of applicants** for **each** and **every** departments.
 * Students are sorted by their **cumulative gpa** by default.
+* Updating or Deleting a row will hold the record of **admin** liable for the action.
+
+## General Actions
 
 ### Add New Record
 
 Admin can add new record of a students **general informations**.<br>
-For Students **registration number** and **roll number** should be unique. A student can apply to any **department(s)** within their **group**.
+For Students **registration number** and **roll number** should be unique. A student can apply to any **department** within their **group**.
 
 ### Update Record
 
@@ -48,10 +51,16 @@ Admin can query Student Record Database using any **field values**.
   occupied
 )
 
+**student_dept**(
+    <ins>reg_no</ins>,
+    <ins>department_id</ins>
+)
+
 **applicant_info**(
   <ins>reg_no</ins>,
+  <ins>department_id</ins>,
   app_name,
-  department_id,
+  gender,
   ssc_roll,
   hsc_roll,
   school,
@@ -64,23 +73,17 @@ Admin can query Student Record Database using any **field values**.
   hsc_group,
   cgpa,
   f_name,
-  m_name,
-  f_occupation,
-  m_occupation,
-  f_phone,
-  m_phone,
-  f_income,
-  m_income
+  m_name
 )
 
 **updates**(
   <ins>reg_no</ins>,
-  admin_id,
+  <ins>admin_id</ins>,
   date
 )
 
 **deletes**(
   <ins>reg_no</ins>,
-  admin_id,
+  <ins>admin_id</ins>,
   date
 )
