@@ -16,6 +16,11 @@ li {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
 }
 
 body {
@@ -28,62 +33,39 @@ body {
 }
 
 header {
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: whitesmoke;
-  box-shadow: 0 0 10px grey;
-  width: 100%;
-  padding: 0 1rem;
-}
-
-.ham {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: .5rem;
-  justify-content: space-around;
-  cursor: pointer;
-}
-
-/* nav:hover ul, ul:hover {
-  display: flex;
-  flex-direction: column;
-} */
-
-.lines {
-  width: 100%;
-  height: 1px;
-  border: 1px solid black;
-}
-
-.menu {
-  position: absolute;
-  top: 48px;
-  left: 0;
-  display: none;
-  flex-direction: column;
   width: 100vw;
-  padding: 1rem 3rem;
-  text-align: right;
-  background-color: rgba(245, 245, 245, 0.918);
-  box-shadow: 0 6px 10px grey;
+  padding: .5rem 0;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 10px grey;
 }
 
-.menu li {
-  width: 100%;
-  margin: .7rem 0;
-  border-bottom: 1px solid black;
-  padding: .5rem;
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding: 1rem 0 .5rem;
+  background-color: white;
+  line-height: 3rem;
+  background-color: white;
 }
 
-.menu li a {
-  color: black;
-  padding: .5rem 0 .5rem 5rem;
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav span, nav button span {
+  display: none;
+}
+
+nav img {
+  height: 2rem;
+}
+
+nav button {
+  display: none;
 }
 
 .container {
@@ -105,23 +87,63 @@ header {
   width: 90vw;
   font-size: 1rem;
   background: none;
-  background-color: white;
+  /* background-color: white; */
   border: none;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px grey;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+  /* border-radius: 10px; */
+  /* box-shadow: 0px 0px 2px grey; */
+}
+
+.container form input:focus {
+  border-bottom: 1px solid black;
 }
 
 .container form button {
-  /* background: none; */
-  font-size: 1rem;
-  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  padding: .7rem 3rem;
   margin-top: 1rem;
-  background-color: rgba(135, 207, 235, 0.822);
-  border: none;
-  border-radius: 10px;
+  background-color: rgba(101, 156, 179, 0.897);
+  /* border: 5px solid rgb(101, 156, 179); */
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.container form button:hover {
+  background-color: rgb(101, 156, 179);
+  transform: scale(1.01);
+  transition: ease-in-out;
 }
 
 @media only screen and (min-width: 800px) {
+  nav {
+    left: 0;
+    /* top: 3rem; */
+    top: 0;
+    height: 100vh;
+    width: auto;
+    padding: 3rem 2rem;
+  }
+  nav ul {
+    display: block;
+    padding-top: 2rem;
+  }
+  nav li {
+    padding: .5rem 0;
+  }
+  nav button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  nav button img {
+    transform: rotate(180deg);
+  }
+  nav button span {
+    font-size: 1rem;
+    padding-left: .2rem;
+  }
   .container form input {
     width: 40vw;
   }
