@@ -9,7 +9,7 @@
       $PAGE_TITLE = "Home";
       break;
     case '/customs/enrollment-system/allstudents.php':
-      $CURR_PAGE = "ALl Students";
+      $CURR_PAGE = "All Students";
       $PAGE_TITLE = "Student Information";
       break;
     case '/customs/enrollment-system/about.php':
