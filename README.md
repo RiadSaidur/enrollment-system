@@ -45,20 +45,19 @@ Admin can query Student Record Database using any **field values**.
 )
 
 **department**(
-  <ins>department_id</ins>,
-  department_name,
+  <ins>department_name</ins>,
   total_seats,
   occupied
 )
 
 **student_dept**(
     <ins>reg_no</ins>,
-    <ins>department_id</ins>
+    <ins>department_name</ins>
 )
 
 **applicant_info**(
   <ins>reg_no</ins>,
-  <ins>department_id</ins>,
+  <ins>department_name</ins>,
   std_name,
   gender,
   hsc_roll,
