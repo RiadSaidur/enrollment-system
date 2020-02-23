@@ -2,7 +2,7 @@
 
 ## Requirements
 
-**In this system, admission keeps students general information during admission. Admission can make any query regarding a student using a search option and also adding new records, save record, update record, delete record and record navigation.**
+**In this system, administration keeps students general information during admission. Administration can make any query regarding a student using a search option and also adding new records, save record, update record, delete record and record navigation.**
 
 ## Planning
 
