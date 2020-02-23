@@ -55,7 +55,7 @@ Admin can query Student Record Database using any **field values**.
     <ins>department_name</ins>
 )
 
-**applicant_info**(
+**student_info**(
   <ins>reg_no</ins>,
   <ins>department_name</ins>,
   std_name,
