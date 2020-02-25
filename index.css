@@ -40,7 +40,7 @@ header {
   width: 100vw;
   padding: .5rem 0;
   text-align: center;
-  background-color: white;
+  background-color: lightslategrey;
   box-shadow: 0 0 10px grey;
 }
 
@@ -49,15 +49,18 @@ nav {
   bottom: 0;
   width: 100vw;
   padding: 1rem 0 .5rem;
-  background-color: white;
   line-height: 3rem;
-  background-color: white;
+  background-color: lightslategrey;
 }
 
 nav ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+nav li {
+  cursor: pointer;
 }
 
 nav span, nav button span {
@@ -75,6 +78,21 @@ nav button {
 .container {
   margin: 2rem 0 5rem;
   text-align: center;
+}
+
+.msg {
+  margin-top: 1rem;
+  padding: .5rem 0;
+  border-bottom-left-radius: 1000px;
+  border-top-right-radius: 1000px;
+}
+
+.error {
+  background-color: rgba(220, 20, 60, 0.24);
+}
+
+.success {
+  background-color: rgba(0, 255, 0, 0.24);
 }
 
 .container form {
@@ -136,15 +154,16 @@ nav button {
 
 .container form button {
   font-size: 1.2rem;
-  padding: .7rem 3rem;
+  padding: .7rem 0;
+  width: 100%;
   margin-top: 1rem;
-  background-color: lightblue;
+  background-color: rgba(240, 128, 128, 0.8);
   border-radius: 15px;
   cursor: pointer;
 }
 
 .container form button:hover {
-  background-color: rgb(108, 194, 223);
+  background-color: rgba(240, 128, 128, 0.9);
   transform: scale(1.01);
   transition: ease-in-out;
 }

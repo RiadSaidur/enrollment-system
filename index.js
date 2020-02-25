@@ -22,4 +22,6 @@ window.addEventListener('load', () => {
   
   collapse.addEventListener('click', hideSpans)
 
+  document.querySelector('form').addEventListener('submit', e => e.preventDefault);
+
 });
