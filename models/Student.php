@@ -22,7 +22,12 @@
     }
 
     public function getAll() {
-      return $this->connection->query("SELECT reg_no, std_name, department_name FROM student_info");    
+      $result = $this->connection->query("SELECT reg_no, std_name, department_name FROM student_info");
+      $response = array();
+      while($row = $result->fetch_assoc()) {
+        $response[] = $row;
+      }
+      return json_encode($response);
     }
 
     public function addNew($req) {
