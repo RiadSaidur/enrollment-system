@@ -4,11 +4,9 @@
 
   $database = new Database();
   $db = $database->connect();
-  $std = new Student($db);
 
-  $res = $std->getAll();
+  $student = new Student($db);
 
-  foreach($res as $r){
-      print_r($r);
-  }
+  // $student->addNew($_POST);
+  echo $_POST['body'];
 ?>

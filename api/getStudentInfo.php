@@ -4,10 +4,9 @@
 
   $database = new Database();
   $db = $database->connect();
+  $std = new Student($db);
 
-  $student = new Student($db);
-
-  $student->addNew($_POST);
-
-  // header("Location: /customs/enrollment-system/index.php")
+  $res = $std->getAll();
+  
+  echo $res;
 ?>

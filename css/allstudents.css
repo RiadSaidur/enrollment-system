@@ -1,0 +1,39 @@
+body {
+  background-color: whitesmoke;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  margin: 2rem 0 5rem;
+  text-align: center;
+}
+
+.container ul {
+  padding-top: 1rem;
+}
+
+.container ul li {
+  height: 2rem;
+  width: 80vw;
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  background-color: palegreen;
+}
+
+.container ul li span {
+  flex: 1;
+}
+
+.container ul li:first-child {
+  padding: 1.5rem 0;
+  background-color: pink;
+}
+
+.container ul li:nth-child(even) {
+  background-color: paleturquoise;
+}

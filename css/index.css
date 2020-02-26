@@ -1,32 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-*:active, *:focus {
-  outline: none;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: crimson;
-}
-
-.active {
-  border-bottom: 3px solid red;
-}
-
 body {
   background-color: whitesmoke;
   height: 100vh;
@@ -34,45 +7,6 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-}
-
-header {
-  width: 100vw;
-  padding: .5rem 0;
-  text-align: center;
-  background-color: lightslategrey;
-  box-shadow: 0 0 10px grey;
-}
-
-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  padding: 1rem 0 .5rem;
-  line-height: 3rem;
-  background-color: lightslategrey;
-}
-
-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-nav li {
-  cursor: pointer;
-}
-
-nav span, nav button span {
-  display: none;
-}
-
-nav img {
-  height: 2rem;
-}
-
-nav button {
-  display: none;
 }
 
 .container {
@@ -170,34 +104,6 @@ nav button {
 
 
 @media only screen and (min-width: 800px) {
-  nav {
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: auto;
-    padding: 3rem 2rem;
-  }
-  nav ul {
-    display: block;
-    padding-top: 2rem;
-  }
-  nav li {
-    padding: .5rem 0;
-  }
-  nav button {
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  nav button img {
-    transform: rotate(180deg);
-  }
-  nav button span {
-    font-size: 1rem;
-    padding-left: .2rem;
-  }
   .container form > input {
     width: 40vw;
   }
