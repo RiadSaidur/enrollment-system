@@ -17,6 +17,20 @@
       if($req['m_name']) $this->m_name = htmlspecialchars(strip_tags($req['m_name']));
     }
 
+    private function isAvailable($dept) {
+      // $sql = "SELECT avail_seats FROM department WHERE department_name = ?";
+      // if($statement = $this->connection->prepare($sql)) {
+      //   $statement->bind_param('s', $dept);
+      //   $res = $statement->execute();
+      //   $statement->bind_result($avail_seats, $avail_seats);
+      //   return $res;
+      // }
+      $sql = "SELECT total_seats FROM department WHERE department_name = '" . $dept . "'";
+      $result = $this->connection->query($sql);
+      $res = $result->fetch_assoc();
+      return $res['total_seats'];
+    }
+
     public function __construct($connection){
       $this->connection = $connection;
     }
@@ -32,15 +46,27 @@
 
     public function addNew($req) {
       $this->sanitize($req);
+      if(!$this->isAvailable($this->department_name)) return false;
+
       $fields = "(reg_no, department_name, std_name, gender, hsc_roll, college, hsc_gpa, hsc_year, hsc_group, f_name, m_name) ";
       $values = "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-      $sql = "INSERT INTO student_info " . $fields . $values;
-      if($statement = $this->connection->prepare($sql));{
-          $statement->bind_param('isssisdisss', $this->reg_no, $this->department_name, $this->std_name, $this->gender, $this->hsc_roll, $this->college, $this->hsc_gpa, $this->hsc_year, $this->hsc_group, $this->f_name, $this->m_name);
-          $res = $statement->execute();
-          if($res) header("Location: /index.php?q=true");
-          else header("Location: /index.php?q=false");
+
+      $studentQuery = "INSERT INTO student_info " . $fields . $values;
+      $deptQuery = "UPDATE department SET total_seats = total_seats - 1 WHERE department_name = ?";
+
+      if(($addStudent = $this->connection->prepare($studentQuery)) && ($updateDept = $this->connection->prepare($deptQuery))){
+        $addStudent->bind_param('isssisdisss',
+          $this->reg_no, $this->department_name, $this->std_name, $this->gender,
+          $this->hsc_roll, $this->college, $this->hsc_gpa, $this->hsc_year,
+          $this->hsc_group, $this->f_name, $this->m_name);
+
+        $updateDept->bind_param('s', $this->department_name);
+
+        $res = $addStudent->execute() & $updateDept->execute();
+
+        return $res;
       }
+      else return false;
     }
   }
 ?>

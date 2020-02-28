@@ -6,7 +6,22 @@
   $db = $database->connect();
 
   $student = new Student($db);
+  $data = json_decode(file_get_contents('php://input'), true);
 
-  // $student->addNew($_POST);
-  echo $_POST['body'];
+  $res = $student->addNew($data);
+
+  header("Content-type:application/json");
+  if($res) {
+    header("HTTP/1.1 200 OK");
+    // $res = array(
+    //   "okay" => "okay"
+    // );
+    // $res = json_encode($res);
+  } else {
+    header("HTTP/1.1 400 Bad Request");
+    // $res = array(
+    //   "okay" => "not okay"
+    // );
+    // $res = json_encode($res);
+  }
 ?>
