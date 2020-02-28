@@ -46,8 +46,7 @@ Admin can query Student Record Database using any **field values**.
 
 **department**(
   <ins>department_name</ins>,
-  total_seats,
-  occupied
+  total_seats
 )
 
 **student_dept**(

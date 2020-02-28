@@ -5,8 +5,7 @@ CREATE TABLE administrator(
 );
 CREATE TABLE department(
     department_name varchar(255) PRIMARY KEY NOT NULL,
-    total_seats int NOT NULL,
-    seats_occupied int NOT NULL
+    total_seats int NOT NULL
 );
 CREATE TABLE student_info(
     reg_no int PRIMARY KEY NOT NULL,
