@@ -19,6 +19,7 @@ body {
   padding: .5rem 0;
   border-bottom-left-radius: 1000px;
   border-top-right-radius: 1000px;
+  cursor: pointer;
 }
 
 .error {
