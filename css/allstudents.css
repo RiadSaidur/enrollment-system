@@ -16,24 +16,38 @@ body {
   padding-top: 1rem;
 }
 
-.container ul li {
+.container ul li, .container ul li a {
   height: 2rem;
-  width: 80vw;
+  width: 90vw;
   padding: 1.2rem 0;
   display: flex;
   align-items: center;
-  background-color: palegreen;
+  background-color: rgba(255, 255, 255, 0.253);
+  border: 1px solid rgba(128, 128, 128, 0.582);
+  cursor: pointer;
 }
 
 .container ul li span {
   flex: 1;
 }
 
-.container ul li:first-child {
-  padding: 1.5rem 0;
-  background-color: pink;
+.container ul li:nth-child(odd) {
+  background-color: rgba(245, 245, 220, 0.267);
 }
 
-.container ul li:nth-child(even) {
-  background-color: paleturquoise;
+.container ul li:first-child {
+  padding: 1.5rem 0;
+  background-color: lightslategray;
+  color: azure;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    padding-left: 2rem;
+  }
+  .container ul li {
+    width: 80vw;
+  }
 }
