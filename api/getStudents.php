@@ -6,7 +6,7 @@
   $db = $database->connect();
   $std = new Student($db);
 
-  $res = $std->getStudentByReg($_GET['reg_no']);
-
+  $res = $std->getAll();
+  
   echo $res;
 ?>

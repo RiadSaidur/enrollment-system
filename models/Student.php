@@ -21,8 +21,8 @@
       // $sql = "SELECT avail_seats FROM department WHERE department_name = ?";
       // if($statement = $this->connection->prepare($sql)) {
       //   $statement->bind_param('s', $dept);
-      //   $res = $statement->execute();
-      //   $statement->bind_result($avail_seats, $avail_seats);
+      //   $statement->execute();
+      //   $res = $statement->get_result();
       //   return $res;
       // }
       $sql = "SELECT total_seats FROM department WHERE department_name = '" . $dept . "'";
@@ -33,6 +33,17 @@
 
     public function __construct($connection){
       $this->connection = $connection;
+    }
+
+    public function getStudentByReg($reg_no) {
+      $this->reg_no = htmlspecialchars(strip_tags($reg_no));
+      $sql = "SELECT * FROM student_info WHERE reg_no = '" . $this->reg_no . "'";
+      $result = $this->connection->query($sql);
+      $response = array();
+      while($row = $result->fetch_assoc()) {
+        $response[] = $row;
+      }
+      return json_encode($response);
     }
 
     public function getAll() {
@@ -47,6 +58,8 @@
     public function addNew($req) {
       $this->sanitize($req);
       if(!$this->isAvailable($this->department_name)) return false;
+
+      // return $this->isAvailable($this->department_name);
 
       $fields = "(reg_no, department_name, std_name, gender, hsc_roll, college, hsc_gpa, hsc_year, hsc_group, f_name, m_name) ";
       $values = "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

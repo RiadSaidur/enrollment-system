@@ -1,6 +1,18 @@
 
 window.addEventListener('load', () => {
 
+  const setValues = async () => {
+    const query = window.location.search
+    const res = await fetch(`../api/getStudentInfo.php${query}`)
+    const data = await res.json()
+
+    const el = document.querySelectorAll('input')
+
+    for(let i=0; i<11; i++) el[i].value = data[0][el[i].name]
+
+    console.log(data)
+  }
+
   const showMsg = content => {
 
     const msgNode = document.querySelector('.msg')
@@ -35,15 +47,15 @@ window.addEventListener('load', () => {
       },
       body: JSON.stringify(data)
     })
-    if(rawResponse.ok) showMsg({ msg: 'Nice', type: 'success' })
+    if(rawResponse.ok) {
+      clearInput(el)
+      showMsg({ msg: 'Nice', type: 'success' })
+    }
     else showMsg({ msg: 'Fuck', type: 'error' })
-
-    clearInput(el)
-
-    console.log(rawResponse)
   }
 
   // Everything starts here
+  if(window.location.search) setValues()
   document.querySelector('form').addEventListener('submit', formHandler)
   document.querySelector('.msg').addEventListener('click', clearMsg)
 

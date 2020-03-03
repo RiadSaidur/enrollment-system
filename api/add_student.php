@@ -10,18 +10,8 @@
 
   $res = $student->addNew($data);
 
-  header("Content-type:application/json");
-  if($res) {
-    header("HTTP/1.1 200 OK");
-    // $res = array(
-    //   "okay" => "okay"
-    // );
-    // $res = json_encode($res);
-  } else {
-    header("HTTP/1.1 400 Bad Request");
-    // $res = array(
-    //   "okay" => "not okay"
-    // );
-    // $res = json_encode($res);
-  }
+  if($res) header("HTTP/1.1 200 OK");
+  else header("HTTP/1.1 400 Bad Request");
+  
+  // echo $res;
 ?>
