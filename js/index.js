@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
     for(let i=0; i<11; i++) el[i].value = data[0][el[i].name]
 
     document.querySelector('#submit').textContent = 'Update'
+    document.querySelector('.container h1').textContent = 'Update Student Information'
   }
 
   const showMsg = content => {
@@ -52,9 +53,9 @@ window.addEventListener('load', () => {
     })
     if(rawResponse.ok) {
       clearInput(el)
-      showMsg({ msg: 'Nice', type: 'success' })
+      showMsg({ msg: 'Document added successfully', type: 'success' })
     }
-    else showMsg({ msg: 'Fuck', type: 'error' })
+    else showMsg({ msg: 'There has been an error', type: 'error' })
   }
 
   // Everything starts here

@@ -14,7 +14,7 @@
   <?php include_once "./global/header.php" ?>
   <?php include_once "./global/toolbar.php" ?>
   <span class="container">
-    <h1>Student Information</h1>
+    <h1>New Student Information</h1>
     <?php include_once './index/error.php' ?>
     <?php include_once './index/form.php' ?>
   </div>
