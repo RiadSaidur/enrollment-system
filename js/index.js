@@ -5,6 +5,11 @@ window.addEventListener('load', () => {
     const query = window.location.search
     const res = await fetch(`../api/getStudentInfo.php${query}`)
     const data = await res.json()
+    
+    if(!data.length) {
+      const { origin } = window.location
+      window.location.replace(`${origin}/search.php?exists=false`)
+    }
 
     const inputs = document.querySelectorAll('input')
     const selects = document.querySelectorAll('select')

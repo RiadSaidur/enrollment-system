@@ -8,7 +8,7 @@
       </a>
     </li>
     <li>
-      <a class=" <?php if($CURR_PAGE == 'Student Information') { ?> active <?php } ?>"  href="./student.php">
+      <a class=" <?php if($CURR_PAGE == 'Student Information') { ?> active <?php } ?>"  href="./search.php">
         <img src="./assets/search.svg" alt="New">
         <span> New Student</span>
       </a>

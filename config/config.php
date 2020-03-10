@@ -4,9 +4,9 @@
       $CURR_PAGE = "Home";
       $PAGE_TITLE = "Home";
       break;
-    case '/newstudent.php':
-      $CURR_PAGE = "New Student";
-      $PAGE_TITLE = "Home";
+    case '/search.php':
+      $CURR_PAGE = "Search";
+      $PAGE_TITLE = "Search";
       break;
     case '/allstudents.php':
       $CURR_PAGE = "All Students";
@@ -14,7 +14,7 @@
       break;
     case '/about.php':
       $CURR_PAGE = 'About';
-      $PAGE_TITLE = "ABout";
+      $PAGE_TITLE = "About";
       break;
     default:
       $CURR_PAGE = "";
