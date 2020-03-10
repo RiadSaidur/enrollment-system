@@ -13,7 +13,7 @@
 <body>
   <?php include_once "./global/header.php" ?>
   <?php include_once "./global/toolbar.php" ?>
-  <span class="container">
+  <div class="container">
     <h1>New Student Information</h1>
     <?php include_once './index/error.php' ?>
     <?php include_once './index/form.php' ?>
