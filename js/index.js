@@ -58,8 +58,17 @@ window.addEventListener('load', () => {
     else showMsg({ msg: 'There has been an error', type: 'error' })
   }
 
+  const isUpdating = () => {
+    const { search } = window.location
+    if(search) {
+      if(search.substr(1).startsWith('reg_no=') && parseInt(search.substr(1).split('reg_no=')[1])) {
+        setValues()
+      }
+    }
+  }
+
   // Everything starts here
-  if(window.location.search) setValues()
+  isUpdating()
   document.querySelector('form').addEventListener('submit', formHandler)
   document.querySelector('.msg').addEventListener('click', clearMsg)
 

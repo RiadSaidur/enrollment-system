@@ -37,8 +37,8 @@
   <label for="hsc_group">
     Group:
     <select name="hsc_group" id="hsc_group" >
-      <option value="Science">Science</option>
-      <option value="Commerce">Commerce</option>
+      <option value="science">Science</option>
+      <option value="commerce">Commerce</option>
     </select>
   </label>
   <label for="hsc_year">
