@@ -37,6 +37,10 @@ header {
   box-shadow: 0 0 10px grey;
 }
 
+header a, nav a, nav button {
+  color: whitesmoke;
+}
+
 nav {
   position: fixed;
   bottom: 0;

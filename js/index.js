@@ -6,11 +6,13 @@ window.addEventListener('load', () => {
     const res = await fetch(`../api/getStudentInfo.php${query}`)
     const data = await res.json()
 
-    const el = document.querySelectorAll('input')
+    const inputs = document.querySelectorAll('input')
+    const selects = document.querySelectorAll('select')
+    const el = [...inputs, ...selects]
 
     for(let i=0; i<11; i++) el[i].value = data[0][el[i].name]
 
-    console.log(data)
+    document.querySelector('#submit').textContent = 'Update'
   }
 
   const showMsg = content => {
@@ -35,6 +37,7 @@ window.addEventListener('load', () => {
   const formHandler = async e => {
     e.preventDefault()
     const el = e.target.elements
+
     const data = {}
 
     for(let i=0; i<11; i++) data[el[i].name] = el[i].value
