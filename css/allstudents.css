@@ -27,6 +27,11 @@ body {
   cursor: pointer;
 }
 
+.container ul li a:hover {
+  color: white;
+  background-color: rgba(119, 136, 153, 0.8);
+}
+
 .container ul li span {
   flex: 1;
 }

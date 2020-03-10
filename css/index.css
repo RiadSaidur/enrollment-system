@@ -16,7 +16,7 @@ body {
 }
 
 .msg {
-  margin-top: 1rem;
+  margin: 1rem 1rem 0;
   padding: .5rem 0;
   border-bottom-left-radius: 1000px;
   border-top-right-radius: 1000px;

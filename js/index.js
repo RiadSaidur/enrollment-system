@@ -56,6 +56,8 @@ window.addEventListener('load', () => {
       showMsg({ msg: 'Document added successfully', type: 'success' })
     }
     else showMsg({ msg: 'There has been an error', type: 'error' })
+
+    window.scrollTo(0, 0)
   }
 
   const isUpdating = () => {

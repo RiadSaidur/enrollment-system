@@ -9,7 +9,7 @@
     </li>
     <li>
       <a class=" <?php if($CURR_PAGE == 'Student Information') { ?> active <?php } ?>"  href="./student.php">
-        <img src="./assets/feather-blue-book.svg" alt="New">
+        <img src="./assets/search.svg" alt="New">
         <span> New Student</span>
       </a>
     </li>
