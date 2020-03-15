@@ -17,6 +17,7 @@
     <h1>New Student Information</h1>
     <?php include_once './index/error.php' ?>
     <?php include_once './index/form.php' ?>
+    <button id='delete'>DELETE</button>
   </div>
   <script src="./js/index.js"></script>
 </body>

@@ -29,6 +29,26 @@
       $this->connection = $connection;
     }
 
+    public function updateInfo($req) {
+      $this->sanitize($req);
+
+      $fields = "department_name = ? , std_name = ? , gender = ? , hsc_roll = ? , college = ? , hsc_gpa = ? , hsc_year = ? , hsc_group = ? , f_name = ? , m_name = ? ";
+
+      $studentQuery = "UPDATE student_info SET " . $fields . "WHERE reg_no ='" . $this->reg_no . "'";
+
+      if(($addStudent = $this->connection->prepare($studentQuery))){
+        $addStudent->bind_param('sssisdisss',
+          $this->department_name, $this->std_name, $this->gender,
+          $this->hsc_roll, $this->college, $this->hsc_gpa, $this->hsc_year,
+          $this->hsc_group, $this->f_name, $this->m_name);
+
+        $res = $addStudent->execute();
+
+        return $res;
+      }
+      else return false;
+    }
+
     public function serachStudent($param) {
       $field = htmlspecialchars(strip_tags($param['field']));
       $value = htmlspecialchars(strip_tags($param['value']));

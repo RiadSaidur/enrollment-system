@@ -48,7 +48,14 @@ window.addEventListener('load', () => {
 
     for(let i=0; i<11; i++) data[el[i].name] = el[i].value
 
-    const rawResponse = await fetch('../api/add_student.php', {
+    let baseAPI = '../api/'
+
+    const params = new URLSearchParams(window.location.search)
+
+    if(params.has('reg_no')) baseAPI += 'updateInfo.php'
+    else baseAPI += 'add_student.php'
+
+    const rawResponse = await fetch(baseAPI, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
