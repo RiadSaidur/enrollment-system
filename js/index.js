@@ -1,6 +1,11 @@
 
 window.addEventListener('load', () => {
 
+  const deleteInfo = async () => {
+    const res = await fetch(`/api/deleteInfo.php${window.location.search}`)
+    const data = await res.json()
+  }
+
   const setValues = async () => {
     const query = window.location.search
     const res = await fetch(`../api/getStudentInfo.php${query}`)
@@ -77,6 +82,9 @@ window.addEventListener('load', () => {
     if(search) {
       if(search.substr(1).startsWith('reg_no=') && parseInt(search.substr(1).split('reg_no=')[1])) {
         setValues()
+        const dltCTA = document.querySelector('#delete')
+        dltCTA.style.display = 'initial'
+        dltCTA.addEventListener('click', deleteInfo)
       }
     }
   }

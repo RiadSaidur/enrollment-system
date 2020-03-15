@@ -29,6 +29,20 @@
       $this->connection = $connection;
     }
 
+    public function deleteInfo($reg_no) {
+      $reg_no = htmlspecialchars(strip_tags($reg_no));
+      $sql = "SELECT department_name FROM student_info WHERE reg_no ='" . $reg_no . "'";
+      $dept = $this->connection->query($sql);
+      $dept = $dept->fetch_assoc(); 
+      $sql = "DELETE FROM student_info WHERE reg_no ='" . $reg_no . "'";
+      $res = $this->connection->query($sql);
+      if($res) {
+        $deptQuery = "UPDATE department SET total_seats = total_seats + 1 WHERE department_name = '" . $dept['department_name'] . "'";
+        $res = $this->connection->query($deptQuery);
+      }
+      return $res;
+    }
+
     public function updateInfo($req) {
       $this->sanitize($req);
 
