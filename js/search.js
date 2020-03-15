@@ -7,24 +7,19 @@ window.addEventListener('load', () => {
     console.log(filterby)
   }
 
-  const formhandler = e => {
+  const formhandler = async e => {
     e.preventDefault()
-    console.log(e.target.elements[0].value)
-  }
 
-  const doesExist = () => {
-    if(search.substr(1).startsWith('exists')) {
-      if(search.substr(1).split('exists=')[1] === 'false') {
-        console.log('ok')
-      }
-    }
+    const query = `?field=${filterby}&value=${e.target.elements[0].value}`
+
+    window.location.href = `/allStudents.php${query}`
+
+    console.log(data)
   }
 
   const filters = [...document.querySelectorAll('input[type="radio"]')]
-  const { search } = window.location
   
   // Everything starts here
-  doesExist()
   filters
     .forEach(filter => filter.addEventListener('click', () => setFilter(filter.id)))
   document

@@ -18,13 +18,7 @@
     }
 
     private function isAvailable($dept) {
-      // $sql = "SELECT avail_seats FROM department WHERE department_name = ?";
-      // if($statement = $this->connection->prepare($sql)) {
-      //   $statement->bind_param('s', $dept);
-      //   $statement->execute();
-      //   $res = $statement->get_result();
-      //   return $res;
-      // }
+      $dept = htmlspecialchars(strip_tags($dept));
       $sql = "SELECT total_seats FROM department WHERE department_name = '" . $dept . "'";
       $result = $this->connection->query($sql);
       $res = $result->fetch_assoc();
@@ -35,9 +29,21 @@
       $this->connection = $connection;
     }
 
+    public function serachStudent($param) {
+      $field = htmlspecialchars(strip_tags($param['field']));
+      $value = htmlspecialchars(strip_tags($param['value']));
+      $sql = "SELECT reg_no, std_name, department_name FROM student_info WHERE " . $field . " LIKE '%" . $value ."%'";
+      $result = $this->connection->query($sql);
+      $response = array();
+      while($row = $result->fetch_assoc()) {
+        $response[] = $row;
+      }
+      return json_encode($response);
+    }
+
     public function getStudentByReg($reg_no) {
-      $this->reg_no = htmlspecialchars(strip_tags($reg_no));
-      $sql = "SELECT * FROM student_info WHERE reg_no = '" . $this->reg_no . "'";
+      $reg_no = htmlspecialchars(strip_tags($reg_no));
+      $sql = "SELECT * FROM student_info WHERE reg_no = '" . $reg_no . "'";
       $result = $this->connection->query($sql);
       $response = array();
       while($row = $result->fetch_assoc()) {
@@ -58,8 +64,6 @@
     public function addNew($req) {
       $this->sanitize($req);
       if(!$this->isAvailable($this->department_name)) return false;
-
-      // return $this->isAvailable($this->department_name);
 
       $fields = "(reg_no, department_name, std_name, gender, hsc_roll, college, hsc_gpa, hsc_year, hsc_group, f_name, m_name) ";
       $values = "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

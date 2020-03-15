@@ -36,6 +36,7 @@ body {
   background-repeat: no-repeat;
   border: none;
   padding: .5rem;
+  cursor: pointer;
 }
 
 .container form button:active {

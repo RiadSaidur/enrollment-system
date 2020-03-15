@@ -20,9 +20,21 @@ window.addEventListener('load', async () => {
     ulRef.appendChild(li)
   }
   
+  let students = []
+  const params = new URLSearchParams(window.location.search)
+
   // getting data from api
-  const res = await fetch('../api/getStudents.php')
-  const students = await res.json()
+
+  if(params.has('field') && params.has('value')) {
+    const filterby = params.get('field')
+    const value = params.get('value')
+    const res = await fetch(`../api/searchStudent.php?field=${filterby}&value=${value}`)
+    students = await res.json()
+  } else {
+    const res = await fetch('../api/getStudents.php')
+    students = await res.json()
+  }
+  
 
   // inserting new li for each student
   students.forEach(student => pushStudent(student))

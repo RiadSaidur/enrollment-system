@@ -1,14 +1,14 @@
 <div class="filters">
-  <label for="name">
-    <input type="radio" name="filter" id="name">
+  <label for="std_name">
+    <input type="radio" name="filter" id="std_name" checked>
     <span>Name</span>
   </label>
   <label for="reg_no">
     <input type="radio" name="filter" id="reg_no">
     <span>Registration Number</span>
   </label>
-  <label for="dept">
-    <input type="radio" name="filter" id="dept">
+  <label for="department_name">
+    <input type="radio" name="filter" id="department_name">
     <span>Department</span>
   </label>
   <label for="gender">

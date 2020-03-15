@@ -8,7 +8,7 @@
       $CURR_PAGE = "Search";
       $PAGE_TITLE = "Search";
       break;
-    case '/allstudents.php':
+    case '/allStudents.php':
       $CURR_PAGE = "All Students";
       $PAGE_TITLE = "Student List";
       break;
