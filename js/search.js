@@ -9,8 +9,14 @@ window.addEventListener('load', () => {
 
   const formhandler = async e => {
     e.preventDefault()
+    let value = e.target.elements[0].value
 
-    const query = `?field=${filterby}&value=${e.target.elements[0].value}`
+    if(filterby === 'gender') {
+      if(value.toLowerCase() === 'male') value = 'm'
+      if(value.toLowerCase() === 'female') value = 'f'
+    }
+
+    const query = `?field=${filterby}&value=${value}`
 
     window.location.href = `/allstudents.php${query}`
 
