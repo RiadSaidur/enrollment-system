@@ -2,8 +2,7 @@ window.addEventListener('load', () => {
 
   const searchHandler = e => {
     if(e.key === 'Enter') {
-      const { value } = e.target
-      console.log(value)
+      window.location.href = `/allstudents.php?field=reg_no&value=${e.target.value}`
     }
   }
 

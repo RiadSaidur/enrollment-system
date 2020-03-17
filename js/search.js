@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
 
-  let filterby = ''
+  let filterby = 'std_name'
 
   const setFilter = id => {
     filterby = id
@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
 
     const query = `?field=${filterby}&value=${e.target.elements[0].value}`
 
-    window.location.href = `/allStudents.php${query}`
+    window.location.href = `/allstudents.php${query}`
 
     console.log(data)
   }

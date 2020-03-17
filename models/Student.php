@@ -106,7 +106,7 @@
       $deptQuery = "UPDATE department SET total_seats = total_seats - 1 WHERE department_name = ?";
 
       if(($addStudent = $this->connection->prepare($studentQuery)) && ($updateDept = $this->connection->prepare($deptQuery))){
-        $addStudent->bind_param('isssisdisss',
+        $addStudent->bind_param('ssssisdisss',
           $this->reg_no, $this->department_name, $this->std_name, $this->gender,
           $this->hsc_roll, $this->college, $this->hsc_gpa, $this->hsc_year,
           $this->hsc_group, $this->f_name, $this->m_name);
