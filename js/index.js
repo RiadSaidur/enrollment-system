@@ -2,7 +2,14 @@
 window.addEventListener('load', () => {
 
   const deleteInfo = async () => {
-    const res = await fetch(`/api/deleteInfo.php${window.location.search}`)
+    const rawResponse = await fetch(`/api/deleteInfo.php${window.location.search}`)
+    closePopup()
+    if(rawResponse.ok) {
+      const el = document.querySelectorAll("form input")
+      clearInput(el)
+      showMsg({ msg: 'Document deleted successfully', type: 'success' })
+    }
+    else showMsg({ msg: 'There has been an error', type: 'error' })
   }
 
   const closePopup = () => {
