@@ -11,10 +11,11 @@
     <title>SHAPPY | <?php print $PAGE_TITLE ?></title>
 </head>
 <body>
+  <?php include_once './index/popup.php' ?>
   <?php include_once "./global/header.php" ?>
   <?php include_once "./global/toolbar.php" ?>
   <div class="container">
-    <h1>New Student Information</h1>
+    <h1>New Information</h1>
     <?php include_once './index/error.php' ?>
     <?php include_once './index/form.php' ?>
     <button id='delete'>DELETE</button>

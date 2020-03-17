@@ -3,8 +3,19 @@ window.addEventListener('load', () => {
 
   const deleteInfo = async () => {
     const res = await fetch(`/api/deleteInfo.php${window.location.search}`)
-    const data = await res.json()
   }
+
+  const closePopup = () => {
+    document.querySelector('.backdrop').style.display = 'none'
+  }
+
+  const openPopup = () => {
+    document.querySelector('.backdrop').style.display = 'flex'
+  }
+
+  document.querySelector('#nope').addEventListener('click', () => {
+      
+  })
 
   const setValues = async () => {
     const query = window.location.search
@@ -23,7 +34,7 @@ window.addEventListener('load', () => {
     for(let i=0; i<11; i++) el[i].value = data[0][el[i].name]
 
     document.querySelector('#submit').textContent = 'Update'
-    document.querySelector('.container h1').textContent = 'Update Student Information'
+    document.querySelector('.container h1').textContent = 'Update Information'
   }
 
   const showMsg = content => {
@@ -84,7 +95,7 @@ window.addEventListener('load', () => {
         setValues()
         const dltCTA = document.querySelector('#delete')
         dltCTA.style.display = 'initial'
-        dltCTA.addEventListener('click', deleteInfo)
+        dltCTA.addEventListener('click', openPopup)
       }
     }
   }
@@ -93,5 +104,7 @@ window.addEventListener('load', () => {
   isUpdating()
   document.querySelector('form').addEventListener('submit', formHandler)
   document.querySelector('.msg').addEventListener('click', clearMsg)
+  document.querySelector('#sure').addEventListener('click', deleteInfo)
+  document.querySelector('#nope').addEventListener('click', closePopup)
 
 });

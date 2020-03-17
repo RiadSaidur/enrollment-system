@@ -104,6 +104,55 @@ body {
   display: none;
 }
 
+.backdrop {
+  position: fixed;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(173, 216, 230, 0.144);
+  z-index: 2;
+  color: rgb(95, 10, 27);;
+}
+
+.popup {
+  width: 28rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transform: translateY(-6rem);
+  background-color: rgba(119, 136, 153, 0.678);
+  border-radius: 10px;
+}
+
+.ctas {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.ctas button {
+  padding: .5rem 1rem;
+  cursor: pointer;
+  background: none;
+  /* border: none; */
+  font-size: 1rem;
+}
+
+#nope {
+  background-color: rgba(238, 153, 153, 0.9);
+  border-radius: 8px;
+  border-style: groove;
+}
+
+#sure {
+  border: 1px solid rgb(95, 10, 27);
+  color: rgb(95, 10, 27);
+}
+
 @media only screen and (min-width: 800px) {
   .container form label, .container form input, .container form label select{
     width: 40vw;
