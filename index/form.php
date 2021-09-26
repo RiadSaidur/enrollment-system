@@ -16,7 +16,7 @@
     <input type="text" id="std_name" name="std_name" placeholder="Student's Name" autocomplete="off">
   </label>
   <label for="gender">
-    Gender:
+    <span>Gender:</span>
     <select name="gender" id="gender" >
       <option value="male">Male</option>
       <option value="female">Female</option>

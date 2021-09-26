@@ -28,8 +28,8 @@ body {
 }
 
 .container ul li a:hover {
-  color: white;
-  background-color: rgba(119, 136, 153, 0.8);
+  color: azure;
+  background-color: rgba(119, 136, 153, 0.75);
 }
 
 .container ul li span {
