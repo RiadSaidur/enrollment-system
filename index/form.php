@@ -4,7 +4,7 @@
     <input type="number" id="reg_no" name="reg_no" placeholder="Registration Number" min=0 autocomplete="off">
   </label>
   <label for="department">
-    Department:
+    <span>Department:</span>
     <select name="department_name" id="department" >
       <option value="CSE">CSE</option>
       <option value="ECE">ECE</option>
@@ -35,7 +35,7 @@
     <input type="text" id="college" name="college" placeholder="College" >
   </label>
   <label for="hsc_group">
-    Group:
+    <span>Group:</span>
     <select name="hsc_group" id="hsc_group" >
       <option value="science">Science</option>
       <option value="commerce">Commerce</option>
