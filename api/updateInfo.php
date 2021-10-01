@@ -1,11 +1,11 @@
 <?php
-  require_once '../config/Database.php';
-  require_once '../models/Student.php';
+  include_once '../config/Database.php';
+  include_once '../config/Student.php';
 
   $database = new Database();
   $db = $database->connect();
-
   $student = new Student($db);
+
   $data = json_decode(file_get_contents('php://input'), true);
 
   $res = $student->updateInfo($data);

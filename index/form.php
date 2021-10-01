@@ -1,4 +1,4 @@
-<form>
+<form method="post">
   <label for="reg_no">
     <span>Registration Number</span>
     <input type="number" id="reg_no" name="reg_no" placeholder="Registration Number" min=0 autocomplete="off">

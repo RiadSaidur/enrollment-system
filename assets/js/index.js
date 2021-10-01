@@ -1,8 +1,9 @@
-
 window.addEventListener('load', () => {
 
   const deleteInfo = async () => {
-    const rawResponse = await fetch(`/api/deleteInfo.php${window.location.search}`)
+    const origin = window.location.origin
+    const rawResponse = await fetch(`${origin}/api/deleteInfo.php${window.location.search}`)
+    console.log(rawResponse);
     closePopup()
     if(rawResponse.ok) {
       const el = document.querySelectorAll("form input")
@@ -21,16 +22,16 @@ window.addEventListener('load', () => {
   }
 
   document.querySelector('#nope').addEventListener('click', () => {
-      
+    document.querySelector('.backdrop').style.display = 'none'  
   })
 
   const setValues = async () => {
     const query = window.location.search
-    const res = await fetch(`../api/getStudentInfo.php${query}`)
+    const origin = window.location.origin
+    const res = await fetch(`${origin}/api/getStudentInfo.php${query}`)
     const data = await res.json()
     
     if(!data.length) {
-      const { origin } = window.location
       window.location.replace(`${origin}/search.php?exists=false`)
     }
 
@@ -63,38 +64,6 @@ window.addEventListener('load', () => {
     })
   }
 
-  const formHandler = async e => {
-    e.preventDefault()
-    const el = e.target.elements
-
-    const data = {}
-
-    for(let i=0; i<11; i++) data[el[i].name] = el[i].value
-
-    let baseAPI = '../api/'
-
-    const params = new URLSearchParams(window.location.search)
-
-    if(params.has('reg_no')) baseAPI += 'updateInfo.php'
-    else baseAPI += 'add_student.php'
-
-    const rawResponse = await fetch(baseAPI, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    if(rawResponse.ok) {
-      clearInput(el)
-      showMsg({ msg: 'Document added successfully', type: 'success' })
-    }
-    else showMsg({ msg: 'There has been an error', type: 'error' })
-
-    window.scrollTo(0, 0)
-  }
-
   const isUpdating = () => {
     const { search } = window.location
     if(search) {
@@ -109,9 +78,8 @@ window.addEventListener('load', () => {
 
   // Everything starts here
   isUpdating()
-  document.querySelector('form').addEventListener('submit', formHandler)
   document.querySelector('.msg').addEventListener('click', clearMsg)
-  document.querySelector('#sure').addEventListener('click', deleteInfo)
+  // document.querySelector('#sure')?.addEventListener('click', deleteInfo)
   document.querySelector('#nope').addEventListener('click', closePopup)
 
 });
